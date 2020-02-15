@@ -1,3 +1,6 @@
+const petsData = require('./Animaldata.json');
+console.log(petsData)
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -23,7 +26,19 @@ app.get('/api/demo', (request, response) => {
 });
 // END DEMO
 
+app.get('/api/pets', (request, response) => {
+  response.json({
+    petsData
+  })
+})
+
+//
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`API listening on port ${port}...`);
 });
+ 
+/*const APP_ID = " ...."
+  const APP_KEY = "...."
+  */
