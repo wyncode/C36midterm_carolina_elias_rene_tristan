@@ -1,5 +1,5 @@
 const petsData = require('./Animaldata.json');
-console.log(petsData)
+// console.log(petsData)
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();

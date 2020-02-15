@@ -1,13 +1,13 @@
 import React from 'react';
+import Cards from './Cards';
+
 
 const About = ()=>{
 
-    return <h1> </h1>
+    return <div> <Cards /> </div>
 
     
 }
-
-
 
 
 

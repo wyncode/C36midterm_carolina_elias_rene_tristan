@@ -8,11 +8,27 @@ import PetDetail from './Components/PetDetail';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
-  
+
+  useEffect ( () => {
+    getApiData ();
+  }, []);
+
+  const getApiData = () => {
+    axios.get(`/api/pets`)
+    .then(response => {
+      const data = response.data 
+      // console.log(data);
+    })
+  }
   return (
     <Router>
-      <Nav />
-
+      <nav>
+        <ul>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+        </ul>
+      </nav>
       <Switch>
         
         <Route path="/about">
@@ -24,25 +40,12 @@ const App = () => {
        
       </Switch>
     </Router>
+
   )
 
-  useEffect ( () => {
-    getApiData ();
-  }, []);
+  
 
-  const getApiData = () => {
-    axios.get(`/api/pets`)
-    .then(response => {
-      const data = response.data 
-      console.log(data);
-    })
-  }
 
-  return (
-    <div id="demo">
-      <h1>Hello from client/src/App.js</h1>
-    </div>
-  );
 
 
 }

@@ -2,8 +2,9 @@ import React from 'react';
 
 const Nav = ()=>{
 
-    return <h1> </h1>
-    
+    return (
+    <h1> </h1>
+    )
 }
 
 
