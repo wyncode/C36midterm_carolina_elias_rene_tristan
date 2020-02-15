@@ -1,19 +1,37 @@
-import axios from 'axios'
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect} from 'react';
 import './App.css';
 
-class App extends React.Component {
-  state = { serverMessage: '' };
+const App = () => {
+  
+  useEffect ( () => {
+    getApiData ();
+  }, []);
 
-
-  render() {
-    return (
-      <div id="demo">
-        <h1>Hello from client/src/App.js</h1>
-        <h1>{this.state.serverMessage}</h1>
-      </div>
-    );
+  const getApiData = () => {
+    axios.get(`/api/pets`)
+    .then(response => {
+      const data = response.data 
+      console.log(data);
+    })
   }
+
+  return (
+    <div id="demo">
+      <h1>Hello from client/src/App.js</h1>
+    </div>
+  );
+
+
 }
+
+
+
+// class App extends React.Component {
+//   state = { serverMessage: '' };
+
+
+//   render() {
+   
 
 export default App;
