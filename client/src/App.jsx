@@ -1,9 +1,31 @@
 import axios from 'axios';
 import React, {useEffect} from 'react';
 import './App.css';
+import Nav from './Components/Nav';
+import About from './Components/About'; 
+import Home from './Components/Home';
+import PetDetail from './Components/PetDetail';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
   
+  return (
+    <Router>
+      <Nav />
+
+      <Switch>
+        
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+       
+      </Switch>
+    </Router>
+  )
+
   useEffect ( () => {
     getApiData ();
   }, []);
