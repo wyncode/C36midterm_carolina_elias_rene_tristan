@@ -18,7 +18,7 @@ const Cards = () => {
 
   console.log(pets);
   return (
-    <Container>
+    <Container className="cards-container">
       <Row>
         {pets &&
           pets.map(pet => {
@@ -26,21 +26,13 @@ const Cards = () => {
               ? pet.photos[0].full
               : 'https://placekitten.com/200/300';
             return (
-              <Card
-                bg="dark"
-                text="white"
-                style={{ width: 250, height: 700, margin: 1, padding: 1 }}
-              >
-                <Card.Header as="h3">{pet.name}</Card.Header>
-                <Card.Img
-                  style={{ width: 220, height: 200, margin: 7, padding: 1 }}
-                  src={picture}
-                />
+              <Card>
+                <Card.Header>{pet.name}</Card.Header>
+                <Card.Img src={picture} />
                 <Card.ImgOverlay></Card.ImgOverlay>
-
-                <Card.Body style={{ width: 200 }}>
+                <Card.Body>
                   <Card.Title></Card.Title>
-                  <Card.Subtitle as="h5">{pet.breeds.primary}</Card.Subtitle>
+                  <Card.Subtitle>{pet.breeds.primary}</Card.Subtitle>
                   <br></br>
                   <Card.Text>{pet.description}</Card.Text>
                   <Card.Footer>

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
+import Cards from './Components/Cards';
 import './App.css';
 import Nav from './Components/Nav';
 import About from './Components/About';
@@ -14,7 +15,6 @@ import Reptiles from './Components/Reptiles';
 import Birds from './Components/Birds';
 import PetDetail from './Components/PetDetail';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Cards from './Components/Cards';
 
 const App = () => {
   useEffect(() => {
