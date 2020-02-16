@@ -15,20 +15,19 @@ const Cards = ()=>{
     useEffect(()=>{
          axios.get('/api/pets')
         .then(res => {
-            setPets(res.data.petsData.animals)
+          let dogs = res.data.petsData.animals.filter(animals => animals.type === "Dog")
+          setPets(dogs)
         })
     }, [])
-
-    console.log(pets)
     return(
         <Container>
             <Row>     
             {pets && pets.map((pets, index) => {
-                if (pets.photos.length>0 && pets.photos[0].full && pets.type === 'Dog'){  
+                if (pets.photos.length>0 && pets.photos[0].full){  
                 return(
                     <Card bg="dark" text="white" style={{ width: 250, height: 700, margin: 1, padding: 1 }}>
                           <Card.Header  as="h3">{pets.name}</Card.Header>
-                        <Card.Img style = {{width: 220, height: 200, margin: 7, padding: 1}} src={pets.photos[0].full}/>
+                        <Card.Img style={{width: 220, height: 200, margin: 7, padding: 1}} src={pets.photos[0].full}/>
                         <Card.ImgOverlay></Card.ImgOverlay>
 
                         <Card.Body style = {{width: 200}}>
@@ -40,7 +39,7 @@ const Cards = ()=>{
                         </Card.Body>
                     </Card>
                 )}
-            }) }
+                }) }
             </Row>
         </Container>    
     ) 
