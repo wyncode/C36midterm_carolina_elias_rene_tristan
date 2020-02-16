@@ -47,6 +47,9 @@ const App = () => {
         <Route path="/fish">
           <Fish />
         </Route> */}
+        {/* <Route path="/about">
+          <About />
+        </Route> */}
         <Route path="/about">
           <About />
         </Route>
