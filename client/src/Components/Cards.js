@@ -24,7 +24,7 @@ const Cards = ()=>{
         <Container>
             <Row>     
             {pets && pets.map( pet => {
-                picture = pet.photos.length ? pet.photos[0].small : 'https://placekitten.com/200/300'
+                picture = pet.photos.length ? pet.photos[0].full : 'https://placekitten.com/200/300'
                 return(
                     <Card bg="dark" text="white" style={{ width: 250, height: 700, margin: 1, padding: 1 }}>
                           <Card.Header  as="h3">{pet.name}</Card.Header>
