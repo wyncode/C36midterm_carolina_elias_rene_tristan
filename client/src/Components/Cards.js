@@ -9,21 +9,47 @@ import '../App.css'
 
 
 const Cards = ()=>{
+
     const [pets, setPets] = useState([]);
+    const [youngPets, setYoungPets] = useState([]);
+    const [adultPets, setAdultPets] = useState([]);
+    const [selected, setSelected] = useState([]);
     let picture;
 
     useEffect(()=>{
          axios.get('/api/pets')
         .then(res => {
             setPets(res.data.petsData.animals)
+            setSelected(res.data.petsData.animals);
         })
-    }, [])
+    }, pets)
 
-    console.log(pets)
+    const adultFilter = (arr) => {
+        let adultPets = arr.filter(animals => animals.age === "Adult");
+        // setPets(adultPets);
+        setSelected(adultPets);
+    }
+
+    const youngFilter = (arr) => {
+        let youngPets = arr.filter(animals => animals.age === "Young");
+        // setPets(youngPets);
+        setSelected(youngPets);
+    }
+
+    const allPetsFilter = (arr) => {
+        // let youngPets = arr.filter(animals => animals.age === "Young");
+        // setPets(youngPets);
+        setSelected(pets);
+    }
+
+    
     return(
         <Container>
-            <Row>     
-            {pets && pets.map((pets, index) => {
+            <button onClick={() => allPetsFilter(pets)}>All</button>
+            <button onClick={() => adultFilter(pets)}>Adult</button>
+            <button onClick={() => youngFilter(pets)}>Young</button>
+            <Row>
+            {selected && selected.map((pets, index) => {
                 if (pets.photos.length>0 && pets.photos[0].full){  
                 return(
                     <Card bg="dark" text="white" style={{ width: 250, height: 700, margin: 1, padding: 1 }}>
