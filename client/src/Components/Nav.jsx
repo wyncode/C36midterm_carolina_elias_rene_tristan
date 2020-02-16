@@ -3,12 +3,14 @@ import logo from '../Images/logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import '../App.css';
+import { Link } from 'react-router-dom';
+import Cards from "./Cards"
 
 const MyNav = () => {
   return (
     <Navbar expand="lg">
       <Nav.Link href="home">
-        <img src={logo} className="logo" alt="logo"></img>
+        <Link to ="/"><img src={logo} className="logo" alt="logo"></img> </Link>
       </Nav.Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

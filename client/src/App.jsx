@@ -6,6 +6,7 @@ import About from './Components/About';
 import Home from './Components/Home';
 import PetDetail from './Components/PetDetail';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Cards from './Components/Cards';
 
 const App = () => {
   useEffect(() => {
@@ -48,6 +49,9 @@ const App = () => {
         </Route> */}
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/adoptme">
+          <Cards />
         </Route>
         <Route path="/">
           <Home />

@@ -2,8 +2,9 @@ import React from 'react';
 import Banner from '../Images/banner.png';
 import Carousel from './Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Image, Button, ButtonToolbar } from 'react-bootstrap';
+import { Container, Image, Button, ButtonToolbar, Card } from 'react-bootstrap';
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 const HomeBanner = () => {
   return (
@@ -12,7 +13,7 @@ const HomeBanner = () => {
         <h1>Looking for a Forever Friend?</h1>
         <ButtonToolbar id="adopt-now">
           <Button variant="primary" size="lg">
-            Adopt Now
+          <Link to="/adoptme"> Adopt Now </Link>
           </Button>
         </ButtonToolbar>
       </div>
