@@ -1,8 +1,9 @@
 import React from 'react';
-import Cards from './Cards';
 import { Container } from 'react-bootstrap';
+import '../App.css';
+import Cards from './Cards';
 
-const Dogs = () => {
+const Ferrets = () => {
   return (
     <Container className="banner-container" fluid={true}>
       <nav />
@@ -11,4 +12,4 @@ const Dogs = () => {
   );
 };
 
-export default Dogs;
+export default Ferrets;
