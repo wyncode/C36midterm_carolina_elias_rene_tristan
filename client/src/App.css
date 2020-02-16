@@ -1,15 +1,94 @@
-/* JUST FOR DEMO PURPORSES, REPLACE WITH YOUR OWN CODE */
-
-#demo {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+@font-face {
+  font-family: 'Artifika';
+  src: url('./Artifika-Regular.ttf') format('ttf');
 }
 
-#demo h1 {
-  display: grid;
-  place-items: center;
+/* NAV STYLE */
+
+.nav-item {
+  list-style-type: none;
 }
 
-/* END DEMO */
+.navbar {
+  background: #79cbb9;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: #51877a;
+}
+
+.nav-item > a {
+  color: #ffffff;
+}
+
+.nav-item > a:hover {
+}
+.nav-dropdown a {
+  color: #ffffff;
+}
+
+.nav-link a {
+  color: white;
+}
+
+.dropdown-menu.show {
+  background-color: #79cbb9;
+  border: none;
+}
+
+.dropdown-menu a {
+  color: white;
+}
+
+.dropdown-menu a:hover {
+  color: #51877a;
+}
+
+.logo {
+  width: 200px;
+  margin-left: 20px;
+}
+
+.logo:hover {
+  content: url('./Images/logo_alternate.svg');
+}
+
+/* BANNER STYLE */
+.banner-image {
+  max-height: 200px;
+  margin-top: 20px;
+}
+
+#call-to-action {
+  color: #f26143;
+  margin-top: 30px;
+  margin-left: 200px;
+  text-align: left;
+}
+
+#adopt-now .btn {
+  background-color: #f26143;
+  border-color: #f26143;
+  margin-top: 20px;
+}
+
+#adopt-now .btn:hover {
+  background-color: #db452c;
+}
+/* CAROUSEL STYLE */
+
+#carousel-div {
+  display: flex;
+  background-color: #f9d01e;
+  justify-content: center;
+  margin-top: -65px;
+}
+
+.carousel {
+  max-width: 1000px;
+  padding: 80px;
+}
