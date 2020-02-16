@@ -49,6 +49,10 @@
   color: #51877a;
 }
 
+.dropdown-item a {
+  padding: 0px;
+}
+
 .logo {
   width: 200px;
   margin-left: 20px;
@@ -75,6 +79,11 @@
   background-color: #f26143;
   border-color: #f26143;
   margin-top: 20px;
+}
+
+#adopt-now .btn a {
+  text-decoration: none;
+  color: white;
 }
 
 #adopt-now .btn:hover {
