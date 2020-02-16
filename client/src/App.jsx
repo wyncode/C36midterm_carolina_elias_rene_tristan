@@ -14,6 +14,8 @@ import Fish from './Components/Fish';
 import Reptiles from './Components/Reptiles';
 import Birds from './Components/Birds';
 import PetDetail from './Components/PetDetail';
+import Dogs from './Components/Dogs';
+import Cats from './Components/Cats';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const App = () => {
@@ -37,7 +39,7 @@ const App = () => {
         <Route path="/cats">
           <Cats />
         </Route>
-        <Route path="/rabbits">
+        {/* <Route path="/rabbits">
           <Rabbits />
         </Route>
         <Route path="/rodents">
