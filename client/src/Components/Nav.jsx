@@ -3,32 +3,67 @@ import logo from '../Images/logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 const MyNav = () => {
   return (
     <Navbar expand="lg">
-      <Nav.Link href="home">
-        <img src={logo} className="logo" alt="logo"></img>
+      <Nav.Link >
+        <Link className="nav-link" to="/"><img src={logo} className="logo" alt="logo"></img></Link>
       </Nav.Link>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto"></Nav>
-        <Nav.Link href="#dogs">Dogs</Nav.Link>
-        <Nav.Link href="#cats">Cats</Nav.Link>
-        <NavDropdown title="Small Animals" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#rabbits">Rabbits</NavDropdown.Item>
-          <NavDropdown.Item href="#rodents">Rodents</NavDropdown.Item>
-          <NavDropdown.Item href="#ferrets">Ferrets</NavDropdown.Item>
-        </NavDropdown>
-        <NavDropdown title="Other Critters" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#birds">Birds</NavDropdown.Item>
-          <NavDropdown.Item href="#reptiles">Reptiles</NavDropdown.Item>
-          <NavDropdown.Item href="#fish">Fish</NavDropdown.Item>
+
+      <Nav.Link>
+         <Link className="nav-link" to="/dogs">Dogs</Link> 
+      </Nav.Link>   
+
+      <Nav.Link>
+         <Link className="nav-link" to="/cats">Cats</Link>
+      </Nav.Link>
+
+       <NavDropdown title="Small Animals"  id="basic-nav-dropdown">
+         <Nav.Link>
+           <NavDropdown.Item>
+             <Link className="nav-link" to="/rabbits">Rabbits</Link>
+           </NavDropdown.Item>
+         </Nav.Link>
+         <Nav.Link>
+             <NavDropdown.Item>
+               <Link className="nav-link" to="/rodents">Rodents</Link>
+            </NavDropdown.Item>
+           </Nav.Link>
+           <Nav.Link>
+           <NavDropdown.Item>
+             <Link className="nav-link" to="/ferrets">Ferrets</Link>
+            </NavDropdown.Item>
+           </Nav.Link>
         </NavDropdown>
 
+        <NavDropdown title="Other Critters" id="basic-nav-dropdown">
+        <Nav.Link>
+           <NavDropdown.Item>
+             <Link className="nav-link" to="/birds">Birds</Link>
+            </NavDropdown.Item>
+           </Nav.Link>
+           <Nav.Link>
+           <NavDropdown.Item>
+             <Link className="nav-link" to="/reptiles">Reptiles</Link>
+            </NavDropdown.Item>
+           </Nav.Link>
+           <Nav.Link>
+           <NavDropdown.Item>
+             <Link className="nav-link" to="/fish">fish</Link>
+            </NavDropdown.Item>
+           </Nav.Link>
+        </NavDropdown>
+  
+
         <Nav.Item as="li">
-          <Nav.Link href="/about" eventKey="link-1">
-            About Us
+          <Nav.Link eventKey="link-1">
+            <Link className="nav-link" to="/about">About Us</Link>
           </Nav.Link>
         </Nav.Item>
       </Navbar.Collapse>
