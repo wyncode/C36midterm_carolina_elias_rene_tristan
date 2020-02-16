@@ -10,24 +10,31 @@ const MyCarousel = () => {
   return (
     <Carousel>
       <Carousel.Item>
-        <img className="d-block w-100" src={dog} alt="First slide" />
-        <Carousel.Caption>
-          <h1>Dogs</h1>
-        </Carousel.Caption>
+        <a href="/dogs">
+          <img className="d-block w-100" src={dog} alt="First slide" />
+          <Carousel.Caption>
+            <h1>Dogs</h1>
+          </Carousel.Caption>
+        </a>
       </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src={cat} alt="Third slide" />
 
-        <Carousel.Caption>
-          <h1>Cats</h1>
-        </Carousel.Caption>
+      <Carousel.Item>
+        <a href="/cats">
+          <img className="d-block w-100" src={cat} alt="Third slide" />
+          <Carousel.Caption>
+            <h1>Cats</h1>
+          </Carousel.Caption>
+        </a>
       </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src={rabbit} alt="Third slide" />
 
-        <Carousel.Caption>
-          <h1>Rabbits</h1>
-        </Carousel.Caption>
+      <Carousel.Item>
+        <a href="/rabbits">
+          <img className="d-block w-100" src={rabbit} alt="Third slide" />
+
+          <Carousel.Caption>
+            <h1>Rabbits</h1>
+          </Carousel.Caption>
+        </a>
       </Carousel.Item>
     </Carousel>
   );

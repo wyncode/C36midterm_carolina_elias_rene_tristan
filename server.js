@@ -29,8 +29,8 @@ app.get('/api/demo', (request, response) => {
 app.get('/api/pets', (request, response) => {
   response.json({
     petsData
-  })
-})
+  });
+});
 
 //
 
@@ -38,7 +38,7 @@ const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`API listening on port ${port}...`);
 });
- 
+
 /*const APP_ID = " ...."
   const APP_KEY = "...."
   */
