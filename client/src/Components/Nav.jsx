@@ -5,11 +5,14 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import '../App.css';
 import { Link } from 'react-router-dom';
 
+import Cards from "./Cards"
+
+
 const MyNav = () => {
   return (
     <Navbar expand="lg">
-      <Nav.Link >
-        <Link className="nav-link" to="/"><img src={logo} className="logo" alt="logo"></img></Link>
+      <Nav.Link href="home">
+        <Link to ="/"><img src={logo} className="logo" alt="logo"></img> </Link>
       </Nav.Link>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

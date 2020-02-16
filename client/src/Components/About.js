@@ -4,7 +4,7 @@ import Cards from './Cards';
 
 const About = ()=>{
 
-    return <div> <Cards /> </div>
+    return <div>  </div>
 
     
 }
