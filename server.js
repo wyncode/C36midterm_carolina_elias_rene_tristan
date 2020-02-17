@@ -55,7 +55,7 @@ app.get('/api/animals', async (request, response) => {
 
   try {
     const { data } = await axios.get(
-      'https://api.petfinder.com/v2/animals?type=dog',
+      'https://api.petfinder.com/v2/animals?limit=100',
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -79,7 +79,7 @@ app.get('/api/animals', async (request, response) => {
         city: animal.contact.address.city,
         state: animal.contact.address.state,
         zip_code: animal.contact.address.zip_code,
-        photo: animal.photos[0]
+        photo: animal.photos && animal.photos[0]
       };
     });
     response.send(animals);
