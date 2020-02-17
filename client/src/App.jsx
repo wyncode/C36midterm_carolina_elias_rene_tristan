@@ -32,6 +32,9 @@ const App = () => {
     <Router>
       <Nav />
       <Switch>
+      <Route path="/">
+          <Home />
+      </Route>
         <Route path="/dogs">
           <Dogs />
         </Route>
