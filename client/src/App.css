@@ -102,3 +102,62 @@
   max-width: 1000px;
   padding: 80px;
 }
+
+/* ANIMAL PAGE STYLE */
+
+.animal-page-container {
+  background-color: lightgrey;
+}
+
+.animal-page-banner {
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+/* CARDS STYLE */
+
+.card {
+  background-color: white;
+  border: 3px solid white;
+  width: 250px;
+  height: 500px;
+  margin: 5px;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  font-size: 20px;
+  background-color: #79cbb8;
+  color: white;
+  text-align: center;
+}
+
+.card-img {
+  width: 220px;
+  height: 200px;
+  margin: 20px;
+  text-align: center;
+}
+.card-body {
+  width: 200px;
+  padding: 1px;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+}
+
+.card-text {
+  font-size: 0.7rem;
+  text-align: justify;
+}
+
+/* SIDEBAR STYLING */
+.sidebar {
+  background-color: white;
+}
