@@ -1,4 +1,8 @@
 import React from 'react';
+import '../../src/App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 const About = () => {
 
@@ -28,13 +32,16 @@ const About = () => {
           future: "In the future I want to be part of a team that creates the next big thing.",
         }
       ];
-        const aboutUs = () => {
-          teamMembers.forEach(teamMember => {
-          console.log(`Hi, I'm ${teamMember.name} and I'm from ${teamMember.city} .${teamMember.about} .${teamMember.future}!`);
-        });
-        }
+        return (
+          <div>
+            {
+              teamMembers.map(teamMember => {
+                return (<h1>{`Hi, I'm ${teamMember.name} and I'm from ${teamMember.city} .${teamMember.about} .${teamMember.future}!`}</h1>);  
+              })
+            }
+          </div>
+        )
       
-      aboutUs(teamMembers);    
 }
 
 export default About
