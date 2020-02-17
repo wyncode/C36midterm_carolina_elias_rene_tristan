@@ -4,9 +4,9 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css'
+import '../../App.css'
 
-const Cards = ()=>{
+const Dogs = ()=>{
     const [pets, setPets] = useState([]);
     let picture;
 
@@ -22,7 +22,7 @@ const Cards = ()=>{
         <Container>
             <Row>     
             {pets && pets.map((pets, index) => {
-                if (pets.photos.length>0 && pets.photos[0].full && pets.type === 'Cat'){  
+                if (pets.photos.length>0 && pets.photos[0].full && pets.type === 'Dog'){  
                 return(
                     <Card bg="dark" text="white" style={{ width: 250, height: 700, margin: 1, padding: 1 }}>
                           <Card.Header  as="h3">{pets.name}</Card.Header>
@@ -44,4 +44,4 @@ const Cards = ()=>{
     ) 
 }
 
-export default Cards;
+export default Dogs;

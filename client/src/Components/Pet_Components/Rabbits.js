@@ -1,9 +1,9 @@
 import React from 'react';
+import Cards from '../Cards';
+import '../../App.css';
 import { Container } from 'react-bootstrap';
-import '../App.css';
-import Cards from './Cards';
 
-const Reptiles = () => {
+const Rabbits = () => {
   return (
     <Container className="banner-container" fluid={true}>
       <nav />
@@ -11,5 +11,4 @@ const Reptiles = () => {
     </Container>
   );
 };
-
-export default Reptiles;
+export default Rabbits;

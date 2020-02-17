@@ -5,8 +5,6 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import '../App.css';
 import { Link } from 'react-router-dom';
 
-import Cards from "./Cards"
-
 
 const MyNav = () => {
   return (
