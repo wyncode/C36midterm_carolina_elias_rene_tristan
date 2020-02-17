@@ -8,91 +8,78 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css'
 
 
+const filterOptions = [
+    { label: 'All', reset: true },
+    { value: 'Young', type: 'age' },
+    { value: 'Adult', type: 'age' },
+    { value: 'Senior', type: 'age' },
+    { value: 'Male', type: 'gender' },
+    { value: 'Female', type: 'gender' },
+    { value: 'Small', type: 'size' },
+    { value: 'Medium', type: 'size' },
+    { value: 'Large', type: 'size' },
+    { value: 'Xlarges', label: 'Extra Large', type: 'size' },
+]
 
 const Cards = ()=>{
 
     const [pets, setPets] = useState([]);
-    const [selected, setSelected] = useState([]);
-    const [size, setSize] = useState("");
-    const [gender, setGender] =useState("");
-    const [allAnimals, setAllAnimals] = useState("All");
-    let picture;
+    const [filters, setFilters] = useState({})
 
     useEffect(()=>{
          axios.get('/api/pets')
-        .then(res => {
-            setPets(res.data.petsData.animals)
-            setSelected(res.data.petsData.animals);
-        })
+        .then(res => setPets(res.data.petsData.animals))
     }, [])
 
-    const adultFilter = (arr) => {
-        let adultPets = arr.filter(animals => animals.age === "Adult");
-        // setPets(adultPets);
-        setSelected(adultPets);
-    }
-
-    const youngFilter = (arr) => {
-        let youngPets = arr.filter(animals => animals.age === "Young");
-        // setPets(youngPets);
-        setSelected(youngPets);
-    }
-
-    const allPetsFilter = (arr) => {
-        setAllAnimals("All")
-        setGender('')
-        setSize('')
-    }
-
-    const handleAnimalGender = (gender) => {
-        setAllAnimals("")
-        setGender(gender)
-    }
-  
-    const handleAnimalSize = (size) => {
-        setAllAnimals("")
-        setSize(size)
-    }
+    const updateFilters = ({ filterType, filterValue, reset }) => setFilters(
+        reset 
+            ? {} // if reset is true empty the object
+            : { ...filters, [filterType]: filterValue } // if it's not true maintain the rest of the properties and append/update the new ones
+        );
+    
+    
+    const checkFilters = (filterKeys, pet) => filterKeys.every(key => { // we loop our filterd keys, and we compared the value of those filters with the values of each pet
+        const filterValue = filters[key];
+        return pet[key] === filterValue;
+    })
    
-    return(
+    return( // the return is what gets rendured 
         <Container>
-            <button onClick={allPetsFilter}>All</button>
-            <button onClick={() => adultFilter(pets)}>Adult</button>
-            <button onClick={() => youngFilter(pets)}>Young</button>
-            <button onClick={()=>handleAnimalGender('Male')}>Male</button>
-            <button onClick={()=>handleAnimalGender('Female')}>Female</button>
-            <button onClick={()=>handleAnimalSize('Small')}>Small</button>
-            <button onClick={()=>handleAnimalSize('Medium')}>Medium</button>
-            <button onClick={()=>handleAnimalSize('Large')}>Large</button>
-            <button onClick={()=>handleAnimalSize('XLarges')}>Extra Large</button>
+            <div>
+            {filterOptions.map(({ value, label, type, reset }) => (
+                <button onClick={() => updateFilters({ filterType: type, filterValue: value, reset })}>{label || value}</button>
+            ))} {/* This filter options.map just maps through our options/filters /*/}
             <Row>
-            {selected && selected.filter(animal => {
-                if (allAnimals === "All") return true
-                if (animal.size === size) return animal.size === size               
-            })
-            .filter(animal => {
-                if (allAnimals === "All") return true
-                if (animal.gender === gender) return animal.gender === gender
-            })
-            .map((pets, index) => {
-                if (pets.photos.length>0 && pets.photos[0].full){  
-                return(
-                    <Card bg="dark" text="white" style={{ width: 250, height: 700, margin: 1, padding: 1 }}>
-                          <Card.Header  as="h3">{pets.name}</Card.Header>
-                        <Card.Img style = {{width: 220, height: 200, margin: 7, padding: 1}} src={pets.photos[0].full}/>
+
+            {pets && pets.reduce((acc, pet) => { // the accumulator is a value that gets carried over after each accumulator
+                const filterKeys = Object.keys(filters) //array of strings for each key in the object
+                const hasFilters = !!filterKeys.length; //the !! are optional to further visualize that it's a falsy statement. 
+                const hasPhoto = pet.photos.length && pet.photos[0].full
+
+                if (!hasPhoto) return acc; //if it doesn't have photos, skip this pet and return acc value
+                if (hasFilters) {
+                    const isValid = checkFilters(filterKeys, pet)
+                    if (!isValid) return acc; //if the filters aren't "valid", we skip the pet again by returning the accumulator, which is no pet, because we have set it to an empty array
+                }
+        
+                acc.push(( //so if it has fotos, and filters, push the pet "post" into the accumulator
+                    <Card key={pet.id} bg="dark" text="white" style={{ width: 250, height: 430, margin: 1, padding: 1 }}>
+                        <Card.Header  as="h3">{pet.name}</Card.Header>
+                        <Card.Img style = {{width: 220, height: 200, margin: 7, padding: 1}} src={pet.photos[0].full}/>
                         <Card.ImgOverlay></Card.ImgOverlay>
 
                         <Card.Body style = {{width: 200}}>
                             <Card.Title></Card.Title>
-                            <Card.Subtitle as="h5">{pets.breeds.primary}</Card.Subtitle>
+                            <Card.Subtitle as="h5">{pet.breeds.primary}</Card.Subtitle>
                             <br></br>
-                            <Card.Text>{pets.description}</Card.Text>
-                            <Card.Footer><small>Age: {pets.age} <br/> Size: {pets.size} <br/>  Sex: {pets.gender} </small></Card.Footer>
+                            <Card.Footer><small>Age: {pet.age} <br/> Size: {pet.size} <br/>  Sex: {pet.gender} </small></Card.Footer>
                         </Card.Body>
-                    </Card>
-                )}
-            }) }
+                    </Card> 
+                ))
+                return acc;
+            }, [])} {/* this empty braket (empty array) represents the innitial accumulator value*/}
             </Row>
+          </div>  
         </Container>    
     ) 
 }
