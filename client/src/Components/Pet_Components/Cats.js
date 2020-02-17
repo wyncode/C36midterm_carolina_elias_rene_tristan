@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css'
+import '../../App.css'
 
 const Cards = ()=>{
     const [pets, setPets] = useState([]);

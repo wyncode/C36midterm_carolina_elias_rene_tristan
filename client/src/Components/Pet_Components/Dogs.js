@@ -4,9 +4,9 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css'
+import '../../App.css'
 
-const Cards = ()=>{
+const Dogs = ()=>{
     const [pets, setPets] = useState([]);
     let picture;
 
@@ -44,4 +44,4 @@ const Cards = ()=>{
     ) 
 }
 
-export default Cards;
+export default Dogs;

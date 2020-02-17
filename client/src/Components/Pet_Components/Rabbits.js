@@ -1,5 +1,6 @@
 import React from 'react';
-import Cards from './Cards';
+import Cards from '../Cards';
+import '../../App.css';
 import { Container } from 'react-bootstrap';
 
 const Rabbits = () => {

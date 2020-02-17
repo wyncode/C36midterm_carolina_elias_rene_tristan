@@ -32,11 +32,11 @@ const App = () => {
     <Router>
       <Nav />
       <Switch>
-      <Route path="/">
+      <Route exact path="/">
           <Home />
       </Route>
         <Route path="/dogs">
-          <Dogs />
+          <Dogs/>
         </Route>
         <Route path="/cats">
           <Cats />
