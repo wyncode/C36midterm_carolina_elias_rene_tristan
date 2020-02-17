@@ -12,9 +12,10 @@ import '../App.css'
 const Cards = ()=>{
 
     const [pets, setPets] = useState([]);
-    const [youngPets, setYoungPets] = useState([]);
-    const [adultPets, setAdultPets] = useState([]);
     const [selected, setSelected] = useState([]);
+    const [size, setSize] = useState("");
+    const [gender, setGender] =useState("");
+    const [allAnimals, setAllAnimals] = useState("All");
     let picture;
 
     useEffect(()=>{
@@ -23,7 +24,7 @@ const Cards = ()=>{
             setPets(res.data.petsData.animals)
             setSelected(res.data.petsData.animals);
         })
-    }, pets)
+    }, [])
 
     const adultFilter = (arr) => {
         let adultPets = arr.filter(animals => animals.age === "Adult");
@@ -38,49 +39,43 @@ const Cards = ()=>{
     }
 
     const allPetsFilter = (arr) => {
-        // let youngPets = arr.filter(animals => animals.age === "Young");
-        // setPets(youngPets);
-        setSelected(pets);
-    }
-    const maleFilter = (arr) => {
-        let malePets = arr.filter(animals => animals.gender === "Male");
-        setSelected(malePets);
-    }
-    const femaleFilter = (arr) => {
-        let femalePets = arr.filter(animals => animals.gender === "Female");
-        setSelected(femalePets);
-    }
-    const smallFilter = (arr) => {
-        let smallPets = arr.filter(animals => animals.size === "Small");
-        setSelected(smallPets);
-    }
-    const mediumFilter = (arr) => {
-        let mediumPets = arr.filter(animals => animals.size === "Medium");
-        setSelected(mediumPets);
-    }
-    const largeFilter = (arr) => {
-        let largePets = arr.filter(animals => animals.size === "Large");
-        setSelected(largePets);
-    }
-    const xlargeFilter = (arr) => {
-        let xlargePets = arr.filter(animals => animals.size === "Xlarge");
-        setSelected(xlargePets);
+        setAllAnimals("All")
+        setGender('')
+        setSize('')
     }
 
-    
+    const handleAnimalGender = (gender) => {
+        setAllAnimals("")
+        setGender(gender)
+    }
+  
+    const handleAnimalSize = (size) => {
+        setAllAnimals("")
+        setSize(size)
+    }
+   
     return(
         <Container>
-            <button onClick={() => allPetsFilter(pets)}>All</button>
+            <button onClick={allPetsFilter}>All</button>
             <button onClick={() => adultFilter(pets)}>Adult</button>
             <button onClick={() => youngFilter(pets)}>Young</button>
-            <button onClick={() => maleFilter(pets)}>Male</button>
-            <button onClick={() => femaleFilter(pets)}>Female</button>
-            <button onClick={() => smallFilter(pets)}>Small</button>
-            <button onClick={() => mediumFilter(pets)}>Medium</button>
-            <button onClick={() => largeFilter(pets)}>Large</button>
-            <button onClick={() => xlargeFilter(pets)}>Extra Large</button>
+            <button onClick={()=>handleAnimalGender('Male')}>Male</button>
+            <button onClick={()=>handleAnimalGender('Female')}>Female</button>
+            <button onClick={()=>handleAnimalSize('Small')}>Small</button>
+            <button onClick={()=>handleAnimalSize('Medium')}>Medium</button>
+            <button onClick={()=>handleAnimalSize('Large')}>Large</button>
+            <button onClick={()=>handleAnimalSize('XLarges')}>Extra Large</button>
             <Row>
-            {selected && selected.map((pets, index) => {
+            {selected && selected.filter(animal => {
+                if (allAnimals === "All") return true
+                if (animal.size === size) return animal.size === size               
+            })
+            .filter(animal => {
+                if (allAnimals === "All") return true
+                if (animal.gender === gender) return animal.gender === gender
+            })
+         
+            .map((pets, index) => {
                 if (pets.photos.length>0 && pets.photos[0].full){  
                 return(
                     <Card bg="dark" text="white" style={{ width: 250, height: 700, margin: 1, padding: 1 }}>
