@@ -13,7 +13,7 @@ const HomeBanner = () => {
         <h1>Looking for a Forever Friend?</h1>
         <ButtonToolbar id="adopt-now">
           <Button variant="primary" size="lg">
-          <Link to="/adoptme"> Adopt Now </Link>
+            <Link to="/adoptme"> Adopt Now </Link>
           </Button>
         </ButtonToolbar>
       </div>
