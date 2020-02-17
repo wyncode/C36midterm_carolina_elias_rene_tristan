@@ -27,9 +27,11 @@ const Cards = ()=>{
     const [filters, setFilters] = useState({})
 
     useEffect(()=>{
-         axios.get('/api/pets')
-        .then(res => setPets(res.data.petsData.animals))
+         axios.get('/api/animals')
+        .then(res => setPets(res.data))
     }, [])
+
+    console.log('what', pets);
 
     const updateFilters = ({ filterType, filterValue, reset }) => setFilters(
         reset 
@@ -54,9 +56,8 @@ const Cards = ()=>{
             {pets && pets.reduce((acc, pet) => { // the accumulator is a value that gets carried over after each accumulator
                 const filterKeys = Object.keys(filters) //array of strings for each key in the object
                 const hasFilters = !!filterKeys.length; //the !! are optional to further visualize that it's a falsy statement. 
-                const hasPhoto = pet.photos.length && pet.photos[0].full
 
-                if (!hasPhoto) return acc; //if it doesn't have photos, skip this pet and return acc value
+                if (!pet.photo) return acc; //if it doesn't have photos, skip this pet and return acc value
                 if (hasFilters) {
                     const isValid = checkFilters(filterKeys, pet)
                     if (!isValid) return acc; //if the filters aren't "valid", we skip the pet again by returning the accumulator, which is no pet, because we have set it to an empty array
@@ -65,12 +66,12 @@ const Cards = ()=>{
                 acc.push(( //so if it has fotos, and filters, push the pet "post" into the accumulator
                     <Card key={pet.id} bg="dark" text="white" style={{ width: 250, height: 430, margin: 1, padding: 1 }}>
                         <Card.Header  as="h3">{pet.name}</Card.Header>
-                        <Card.Img style = {{width: 220, height: 200, margin: 7, padding: 1}} src={pet.photos[0].full}/>
+                        <Card.Img style = {{width: 220, height: 200, margin: 7, padding: 1}} src={pet.photo.full}/>
                         <Card.ImgOverlay></Card.ImgOverlay>
 
                         <Card.Body style = {{width: 200}}>
                             <Card.Title></Card.Title>
-                            <Card.Subtitle as="h5">{pet.breeds.primary}</Card.Subtitle>
+                            <Card.Subtitle as="h5">{pet.breed}</Card.Subtitle>
                             <br></br>
                             <Card.Footer><small>Age: {pet.age} <br/> Size: {pet.size} <br/>  Sex: {pet.gender} </small></Card.Footer>
                         </Card.Body>
