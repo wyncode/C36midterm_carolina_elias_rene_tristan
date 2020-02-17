@@ -74,7 +74,6 @@ const Cards = ()=>{
                 if (allAnimals === "All") return true
                 if (animal.gender === gender) return animal.gender === gender
             })
-         
             .map((pets, index) => {
                 if (pets.photos.length>0 && pets.photos[0].full){  
                 return(
