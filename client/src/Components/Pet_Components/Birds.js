@@ -33,7 +33,7 @@ const Dogs = ()=>{
                             <Card.Title></Card.Title>
                             <Card.Subtitle as="h5">{pets.breeds.primary}</Card.Subtitle>
                             <br></br>
-                            <Card.Text>{pets.description}</Card.Text>
+                            {/* <Card.Text>{pets.description}</Card.Text> */}
                             <Card.Footer><small>Age: {pets.age} <br/> Size: {pets.size} <br/>  Sex: {pets.gender} </small></Card.Footer>
                         </Card.Body>
                     </Card>
