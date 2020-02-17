@@ -29,20 +29,47 @@ const App = () => {
     });
   };
   return (
-    <Router>
-      <Nav />
-      <Switch>
-      <Route exact path="/">
-          <Home />
-      </Route>
-        <Route path="/dogs">
-          <Dogs/>
-        </Route>
-        <Route path="/cats">
-          <Cats />
-        </Route>
-      </Switch>
-    </Router>
+      <Router>
+        <Nav />
+        <Switch>
+          <Route path="/dogs">
+            <Dogs />
+          </Route>
+          <Route path="/cats">
+            <Cats />
+          </Route>
+          <Route path="/rabbits">
+            <Rabbits />
+          </Route>
+          <Route path="/rodents">
+            <Rodents />
+          </Route>
+          <Route path="/ferrets">
+            <Ferrets />
+          </Route>
+          <Route path="/birds">
+            <Birds />
+          </Route>
+          <Route path="/reptiles">
+            <Reptiles />
+          </Route>
+          <Route path="/fish">
+            <Fish />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/petdetail">
+            <PetDetail />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/adoptme">
+            <Cards />
+          </Route>
+        </Switch>
+      </Router>
   );
 };
 
