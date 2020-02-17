@@ -11,6 +11,7 @@
 
 .navbar {
   background: #79cbb9;
+  z-index: 1;
 }
 
 .nav-link {
@@ -66,19 +67,23 @@
 .banner-image {
   max-height: 200px;
   margin-top: 20px;
+  background: none;
 }
 
 #call-to-action {
   color: #f26143;
-  margin-top: 30px;
+  margin-top: 0;
   margin-left: 200px;
   text-align: left;
+  z-index: 1;
+  padding-top: 50px;
 }
 
 #adopt-now .btn {
   background-color: #f26143;
   border-color: #f26143;
   margin-top: 20px;
+  z-index: 1;
 }
 
 #adopt-now .btn a {
@@ -95,7 +100,7 @@
   display: flex;
   background-color: #f9d01e;
   justify-content: center;
-  margin-top: -65px;
+  margin-top: -70px;
 }
 
 .carousel {
