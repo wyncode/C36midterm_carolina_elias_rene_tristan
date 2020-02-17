@@ -41,6 +41,30 @@ const Cards = ()=>{
         // setPets(youngPets);
         setSelected(pets);
     }
+    const maleFilter = (arr) => {
+        let malePets = arr.filter(animals => animals.gender === "Male");
+        setSelected(malePets);
+    }
+    const femaleFilter = (arr) => {
+        let femalePets = arr.filter(animals => animals.gender === "Female");
+        setSelected(femalePets);
+    }
+    const smallFilter = (arr) => {
+        let smallPets = arr.filter(animals => animals.size === "Small");
+        setSelected(smallPets);
+    }
+    const mediumFilter = (arr) => {
+        let mediumPets = arr.filter(animals => animals.size === "Medium");
+        setSelected(mediumPets);
+    }
+    const largeFilter = (arr) => {
+        let largePets = arr.filter(animals => animals.size === "Large");
+        setSelected(largePets);
+    }
+    const xlargeFilter = (arr) => {
+        let xlargePets = arr.filter(animals => animals.size === "Xlarge");
+        setSelected(xlargePets);
+    }
 
     
     return(
@@ -48,6 +72,12 @@ const Cards = ()=>{
             <button onClick={() => allPetsFilter(pets)}>All</button>
             <button onClick={() => adultFilter(pets)}>Adult</button>
             <button onClick={() => youngFilter(pets)}>Young</button>
+            <button onClick={() => maleFilter(pets)}>Male</button>
+            <button onClick={() => femaleFilter(pets)}>Female</button>
+            <button onClick={() => smallFilter(pets)}>Small</button>
+            <button onClick={() => mediumFilter(pets)}>Medium</button>
+            <button onClick={() => largeFilter(pets)}>Large</button>
+            <button onClick={() => xlargeFilter(pets)}>Extra Large</button>
             <Row>
             {selected && selected.map((pets, index) => {
                 if (pets.photos.length>0 && pets.photos[0].full){  
