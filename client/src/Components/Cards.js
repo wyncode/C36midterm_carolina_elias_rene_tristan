@@ -9,15 +9,17 @@ import '../App.css'
 
 
 const filterOptions = [
-    { label: 'All', reset: true },
-    { value: 'Young', type: 'age' },
-    { value: 'Adult', type: 'age' },
-    { value: 'Senior', type: 'age' },
-    { value: 'Male', type: 'gender' },
-    { value: 'Female', type: 'gender' },
-    { value: 'Small', type: 'size' },
-    { value: 'Medium', type: 'size' },
-    { value: 'Large', type: 'size' },
+    { value: 'All', label:"All", reset: true },
+    { value: 'Baby', label:"Baby", type: 'age' },
+    { value: 'Young', label:"Young", type: 'age' },
+    { value: 'Adult', label:"Adult", type: 'age' },
+    { value: 'Senior', label:"Senior", type: 'age' },
+    { value: 'Male', label:"Male", type: 'gender' },
+    { value: 'Female', label:"Female", type: 'gender'},
+    { value: 'Unknown', label:"Unkown", type: 'gender'},
+    { value: 'Small', label:"Small", type: 'size' },
+    { value: 'Medium', label:"Medium", type: 'size' },
+    { value: 'Large', label:"Large", type: 'size' },
     { value: 'Xlarges', label: 'Extra Large', type: 'size' },
 ]
 
@@ -30,8 +32,6 @@ const Cards = ()=>{
          axios.get('/api/animals')
         .then(res => setPets(res.data))
     }, [])
-
-    console.log('what', pets);
 
     const updateFilters = ({ filterType, filterValue, reset }) => setFilters(
         reset 
@@ -66,7 +66,7 @@ const Cards = ()=>{
                 acc.push(( //so if it has fotos, and filters, push the pet "post" into the accumulator
                     <Card key={pet.id} bg="dark" text="white" style={{ width: 250, height: 430, margin: 1, padding: 1 }}>
                         <Card.Header  as="h3">{pet.name}</Card.Header>
-                        <Card.Img style = {{width: 220, height: 200, margin: 7, padding: 1}} src={pet.photo.full}/>
+                        <Card.Img onClick={} style = {{width: 220, height: 200, margin: 7, padding: 1}} src={pet.photo.full}/>
                         <Card.ImgOverlay></Card.ImgOverlay>
 
                         <Card.Body style = {{width: 200}}>

@@ -14,7 +14,6 @@ import Fish from './Components/Pet_Components/Fish';
 import Reptiles from './Components/Pet_Components/Reptiles';
 import Birds from './Components/Pet_Components/Birds';
 import PetDetail from './Components/PetDetail';
-
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const App = () => {
@@ -22,9 +21,9 @@ const App = () => {
     getApiData();
   }, []);
 
-  const getApiData = () => {
-    axios.get(`/api/pets`).then(response => {
-      const data = response.data;
+const getApiData = () => {
+  axios.get(`/api/pets`).then(response => {
+    const data = response.data;
       // console.log(data);
     });
   };
@@ -67,7 +66,7 @@ const App = () => {
         </Route>
         <Route path="/adoptme">
           <Cards />
-        </Route>
+        </Route>   
       </Switch>
     </Router>
   );

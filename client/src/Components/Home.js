@@ -5,6 +5,7 @@ import Carousel from './Carousel';
 import HomeBanner from './HomeBanner';
 import { Container, Nav } from 'react-bootstrap';
 import '../App.css';
+import '/Pets.js';
 
 const Home = () => {
   // render() {

@@ -11,7 +11,7 @@ const Dogs = ()=>{
     let picture;
 
     useEffect(()=>{
-         axios.get('/api/pets')
+         axios.get('/api/animals')
         .then(res => {
             setPets(res.data.petsData.animals)
         })
