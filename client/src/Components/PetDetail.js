@@ -21,17 +21,17 @@ const PetDetail = () => {
         //   console.log(response)
 
         // })
-        console.log(result)
+        // console.log(result)
 
 
       const { id } = result.data
-      setPetData(id)
+      setPetData(result.data)
     }
     getData()
 
   },[]) 
 
-return ( <p>{petData && petData.name}</p> 
+return ( <p>{petData && petData.id}</p> 
      )
 };
 
