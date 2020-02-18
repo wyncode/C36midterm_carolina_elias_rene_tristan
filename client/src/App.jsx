@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Cards from './Components/Cards';
 import './App.css';
 import Nav from './Components/Nav';
@@ -18,14 +18,16 @@ import PetDetail from './Components/PetDetail';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const App = () => {
+  const [isLoading, setLoading] = useState([true]);
+
   useEffect(() => {
     getApiData();
   }, []);
 
   const getApiData = () => {
-    axios.get(`/api/pets`).then(response => {
+    axios.get(`/api/animals`).then(response => {
       const data = response.data;
-      // console.log(data);
+      setLoading(false);
     });
   };
   return (
@@ -59,14 +61,14 @@ const App = () => {
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/petdetail">
+        <Route path="/petdetail/:petId">
           <PetDetail />
-        </Route>
-        <Route exact path="/">
-          <Home />
         </Route>
         <Route path="/adoptme">
           <Cards />
+        </Route>
+        <Route exact path="/">
+          <Home />
         </Route>
       </Switch>
     </Router>

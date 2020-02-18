@@ -7,7 +7,6 @@ const app = express();
 const path = require('path');
 const axios = require('axios');
 let accessToken = {};
-
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
@@ -28,17 +27,17 @@ bearerToken = async () => {
   }
   console.log('Fetching new Token');
   await axios({
-    method: 'POST',
-    url: 'https://api.petfinder.com/v2/oauth2/token',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    data: {
-      grant_type: 'client_credentials',
-      client_id: 'JRy179sFUbAP04MxiXwjkiu4tnR5s6QLIn31rIKBSZ7W2AD8g2',
-      client_secret: 'tB40mHNvRHS7WarYuFfAIBkO3RZjZfhIXpihTKze'
-    }
-  })
+      method: 'POST',
+      url: 'https://api.petfinder.com/v2/oauth2/token',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        grant_type: 'client_credentials',
+        client_id: 'JRy179sFUbAP04MxiXwjkiu4tnR5s6QLIn31rIKBSZ7W2AD8g2',
+        client_secret: 'tB40mHNvRHS7WarYuFfAIBkO3RZjZfhIXpihTKze'
+      }
+    })
     .then(response => response.data)
     .then(data => {
       accessToken.token = data.access_token;
@@ -51,12 +50,14 @@ bearerToken = async () => {
 };
 
 app.get('/api/animals', async (request, response) => {
+  // console.log('hit');
   const token = await bearerToken();
 
   try {
-    const { data } = await axios.get(
-      'https://api.petfinder.com/v2/animals?limit=100',
-      {
+    const {
+      data
+    } = await axios.get(
+      'https://api.petfinder.com/v2/animals?limit=100', {
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -86,14 +87,16 @@ app.get('/api/animals', async (request, response) => {
     response.send(animals);
   } catch (e) {
     console.log(e);
+    response.status(500);
   }
 });
 
-app.get('/api/animals/:id', async (req, res) => {
+app.get('/api/pets/:id', async (req, res) => {
   const token = await bearerToken();
-  const { data } = await axios.get(
-    `https://api.petfinder.com/v2/animals/${req.params.id}`,
-    {
+  const {
+    data
+  } = await axios.get(
+    `https://api.petfinder.com/v2/animals/${req.params.id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -115,9 +118,10 @@ app.get('/api/animals/:id', async (req, res) => {
     status: data.animal.status,
     contact: data.animal.contact,
     published_at: data.animal.published_at,
-    image: data.animal.photos[0].medium
+    image: data.animal.photos
   };
   res.send(animal);
+  console.log(animal)
 });
 
 const port = process.env.PORT || 8080;
