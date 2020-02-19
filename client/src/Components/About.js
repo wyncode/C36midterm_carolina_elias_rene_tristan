@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col } from 'react-bootstrap';
 import ReactDOM from 'react-dom';
 import Carolina from '../Images/KleinCarolina-photo.jpg';
+import Rene from '../Images/BreslauerRene-photo.jpg';
 
 const About = () => {
   console.log(Carolina);
@@ -28,7 +29,9 @@ const About = () => {
       city: 'Miami',
       about:
         'Having grown up around cats, dogs, and horses, animals and animal welfare has always been an important part of my life. I now have three pet rabbits who destroy everything they touch, but I love them anyways',
-      future: 'else'
+      future:
+        'I look forward to growing my coding and design skills, while making the world a more animated place.',
+      image: Rene
     },
     {
       name: 'Tristan',
@@ -47,7 +50,7 @@ const About = () => {
               <div className="flip-card">
                 <div className="flip-card-inner">
                   <div className="flip-card-front">
-                    <img src={teamMember.image}></img>
+                    <img className="image-cropper" src={teamMember.image}></img>
                   </div>
                   <div className="flip-card-back">
                     <h1>{`${teamMember.name}`}</h1>
