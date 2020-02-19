@@ -17,8 +17,8 @@ const About = () => {
     {
       name: 'Elias',
       city: 'Mexico City',
-      about: 'something',
-      future: 'else'
+      about: 'I have a natural love of all animals mixed with an appreciation for the importance of biodiversity ',
+      future: 'In the future I would like to be a beach bum and learn to surf'
     },
     {
       name: 'Rene',
