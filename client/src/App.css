@@ -126,7 +126,7 @@
 /* ANIMAL PAGE STYLE */
 
 .animal-page-container {
-  background-color: lightgrey;
+  background-color: white;
 }
 
 .animal-page-banner {
@@ -158,17 +158,15 @@
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: none;
   cursor: pointer;
-  background: #fdc893;
 }
 
 .card-header {
   font-family: 'Patua One', cursive;
   font-size: 20px;
-  background-color: white;
   color: #f26143;
   text-align: center;
+  background-color: white;
 }
 
 .card-header:first-child {
