@@ -12,11 +12,11 @@ const PetDetail = () => {
   const [petData, setPetData] = useState({})
   let {
     petId
-  } = useParams();
+} = useParams();
 
   useEffect(() => {
     const getData = async () => {
-      const result = await (Axios.get(`/api/pets/${petId}`))
+      const result = await (Axios.get(`/api/pet/${petId}`))
         // .then(response => {
         //   console.log(response)
 

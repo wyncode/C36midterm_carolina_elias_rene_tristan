@@ -1,3 +1,5 @@
+const { proxyAnimal } = require('./utilities');
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -25,7 +27,7 @@ bearerToken = async () => {
   ) {
     return accessToken.token;
   }
-  console.log('Fetching new Token');
+  console.log('Fetching new Token ---');
   await axios({
       method: 'POST',
       url: 'https://api.petfinder.com/v2/oauth2/token',
@@ -65,33 +67,16 @@ app.get('/api/animals', async (request, response) => {
       }
     );
     // console.log(data.animals)
-    let animals = data.animals.map(animal => {
-      return {
-        id: animal.id,
-        breed: animal.breeds.primary,
-        age: animal.age,
-        gender: animal.gender,
-        size: animal.size,
-        spayed_neutered: animal.attributes.spayed_neutered,
-        house_trained: animal.attributes.house_trained,
-        name: animal.name,
-        email: animal.contact.email,
-        phone: animal.contact.phone,
-        street_address: animal.contact.address.address1,
-        city: animal.contact.address.city,
-        state: animal.contact.address.state,
-        zip_code: animal.contact.address.zip_code,
-        photo: animal.photos && animal.photos[0]
-      };
-    });
+    let animals = data.animals.map(proxyAnimal);
     response.send(animals);
+
   } catch (e) {
     console.log(e);
     response.status(500);
   }
 });
 
-app.get('/api/pets/:id', async (req, res) => {
+app.get('/api/pet/:id', async (req, res) => {
   const token = await bearerToken();
   const {
     data
@@ -103,28 +88,45 @@ app.get('/api/pets/:id', async (req, res) => {
     }
   );
 
-  let animal = {
-    id: data.animal.id,
-    type: data.animal.type,
-    name: data.animal.name,
-    breeds: data.animal.breeds,
-    colors: data.animal.colors,
-    age: data.animal.age,
-    size: data.animal.size,
-    gender: data.animal.gender,
-    coat: data.animal.coat,
-    description: data.animal.description,
-    organization_id: data.animal.organization_id,
-    status: data.animal.status,
-    contact: data.animal.contact,
-    published_at: data.animal.published_at,
-    image: data.animal.photos
-  };
+  const animal = proxyAnimal(data.animal)
   res.send(animal);
-  console.log(animal)
+});
+
+
+
+app.get('/api/types', async (_, res) => {
+  const token = await bearerToken();
+  const {
+    data
+  } = await axios.get(
+    'https://api.petfinder.com/v2/types', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+  );
+  res.send(data)
+})
+
+app.get('/api/pets/:type', async (req, res) => {
+  const token = await bearerToken();
+  const {
+    data
+  } = await axios.get(
+    `https://api.petfinder.com/v2/animals?type=${req.params.type}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+  );
+
+  const animals = data.animals.map(proxyAnimal);
+
+  res.send(animals);
 });
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`API listening on port ${port}...`);
 });
+
