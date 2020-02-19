@@ -36,8 +36,8 @@ bearerToken = async () => {
       },
       data: {
         grant_type: 'client_credentials',
-        client_id: 'JRy179sFUbAP04MxiXwjkiu4tnR5s6QLIn31rIKBSZ7W2AD8g2',
-        client_secret: 'tB40mHNvRHS7WarYuFfAIBkO3RZjZfhIXpihTKze'
+        client_id: `${process.env.client_id}`,
+        client_secret: `${process.env.client_secret}`
       }
     })
     .then(response => response.data)
@@ -59,7 +59,7 @@ app.get('/api/animals', async (request, response) => {
     const {
       data
     } = await axios.get(
-      'https://api.petfinder.com/v2/animals?limit=100', {
+      'https://api.petfinder.com/v2/animals?limit=100&page=100', {
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -113,7 +113,7 @@ app.get('/api/pets/:type', async (req, res) => {
   const {
     data
   } = await axios.get(
-    `https://api.petfinder.com/v2/animals?type=${req.params.type}`, {
+    `https://api.petfinder.com/v2/animals?type=${req.params.type}&limit=100&page=100`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
