@@ -64,29 +64,7 @@ return (
   <Col md="auto">
 
   <Card >
-    {/* //data:
-id: 47413993
-type: "Dog"
-name: "Genius"
-breeds: {primary: "Beagle", secondary: null, mixed: true, unknown: false}
-colors: {primary: null, secondary: null, tertiary: null}
-age: "Baby"
-size: "Medium"
-gender: "Male"
-coat: "Medium"
-description: "Genius. He earned that name because he&#039;s the 2nd smallest of the litter, and the first to climb out if..."
-organization_id: "WI439"
-status: "adoptable"
-contact: {email: "lastpaw.info@gmail.com", 
-email: "lastpaw.info@gmail.com"
-phone: "(608) 343-3057"
-address:
-address1: null
-address2: null
-city: "Beaver Dam"
-state: "WI"
-postcode: "53916"
-country: "US"*/}
+
 
   <Card.Body>
     Breed: {petData.breeds && petData.breeds.primary} <br />
