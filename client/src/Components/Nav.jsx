@@ -7,13 +7,40 @@ import { Link } from 'react-router-dom';
 
 const MyNav = () => {
   return (
-    <Navbar expand="lg">
+    <Navbar expand="lg">-
+      <Nav href="home">
+        <Link to ="/"><img src={logo} className="logo" alt="logo"></img> </Link>
+      </Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" >
+        <Nav className="mr-auto"></Nav>
+      <Nav>
+         <Link className="nav-link" to="/pets/dog">Dogs</Link> 
+      </Nav>   
+
+      <Nav>
+         <Link className="nav-link" to="/pets/cat">Cats</Link>
+      </Nav> 
+
+      <Nav>
+          <Link className="nav-link" to="/pets/rabbit">Rabbits</Link>
+      </Nav>
+
+      <Nav>
+            <Link className="nav-link" to="/pets/bird">Birds</Link>
+      </Nav>
+
+      <Nav.Item as="li">
+      <Nav eventKey="link-1">
+          <Link className="nav-link" to="/about">About Us</Link>
+      </Nav>
+      </Nav.Item>
       <Nav.Link href="home">
         <Link to="/">
           <img src={logo} className="logo" alt="logo"></img>{' '}
         </Link>
       </Nav.Link>
-
+          
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto"></Nav>
@@ -30,54 +57,17 @@ const MyNav = () => {
           </Link>
         </Nav.Link>
 
-        <NavDropdown title="Small Animals" id="basic-nav-dropdown">
           <Nav.Link>
-            <NavDropdown.Item>
               <Link className="nav-link" to="/pets/rabbit">
                 Rabbits
               </Link>
-            </NavDropdown.Item>
           </Nav.Link>
           <Nav.Link>
-            <NavDropdown.Item>
-              <Link className="nav-link" to="/pets/rodent">
-                Rodents
-              </Link>
-            </NavDropdown.Item>
-          </Nav.Link>
-          <Nav.Link>
-            <NavDropdown.Item>
-              <Link className="nav-link" to="/pets/ferret">
-                Ferrets
-              </Link>
-            </NavDropdown.Item>
-          </Nav.Link>
-        </NavDropdown>
-
-        <NavDropdown title="Other Critters" id="basic-nav-dropdown">
-          <Nav.Link>
-            <NavDropdown.Item>
               <Link className="nav-link" to="/pets/bird">
                 Birds
               </Link>
-            </NavDropdown.Item>
-          </Nav.Link>
-          <Nav.Link>
-            <NavDropdown.Item>
-              <Link className="nav-link" to="/pets/reptile">
-                Reptiles
-              </Link>
-            </NavDropdown.Item>
-          </Nav.Link>
-          <Nav.Link>
-            <NavDropdown.Item>
-              <Link className="nav-link" to="/pets/fish">
-                fish
-              </Link>
-            </NavDropdown.Item>
           </Nav.Link>
         </NavDropdown>
-
         <Nav.Item as="li">
           <Nav.Link eventKey="link-1">
             <Link className="nav-link" to="/about">
