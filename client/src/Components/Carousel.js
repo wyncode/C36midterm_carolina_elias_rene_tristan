@@ -19,7 +19,7 @@ const MyCarousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <a href="/pets/cats">
+        <a href="/pets/cat">
           <img className="d-block w-100" src={cat} alt="Third slide" />
           <Carousel.Caption>
             <h1>Cats</h1>
@@ -28,7 +28,7 @@ const MyCarousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <a href="/pets/rabbits">
+        <a href="/pets/rabbit">
           <img className="d-block w-100" src={rabbit} alt="Third slide" />
 
           <Carousel.Caption>
