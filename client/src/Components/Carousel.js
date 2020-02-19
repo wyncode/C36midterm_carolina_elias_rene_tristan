@@ -10,7 +10,7 @@ const MyCarousel = () => {
   return (
     <Carousel>
       <Carousel.Item>
-        <a href="/dogs">
+        <a href="/pets/dog">
           <img className="d-block w-100" src={dog} alt="First slide" />
           <Carousel.Caption>
             <h1>Dogs</h1>
@@ -19,7 +19,7 @@ const MyCarousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <a href="/cats">
+        <a href="/pets/cats">
           <img className="d-block w-100" src={cat} alt="Third slide" />
           <Carousel.Caption>
             <h1>Cats</h1>
@@ -28,7 +28,7 @@ const MyCarousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <a href="/rabbits">
+        <a href="/pets/rabbits">
           <img className="d-block w-100" src={rabbit} alt="Third slide" />
 
           <Carousel.Caption>

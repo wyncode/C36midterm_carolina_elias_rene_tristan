@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
+
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import '../App.css';
+import Pet from './Pet';
 
 const filterOptions = [
   { label: 'All', reset: true },
@@ -24,22 +24,18 @@ const filterOptions = [
 const Cards = () => {
   const history = useHistory();
   const [pets, setPets] = useState([]);
+
   const [filters, setFilters] = useState({});
 
-  useEffect(() => {
-    axios.get('/api/animals').then(res => setPets(res.data));
-  }, []);
 
-  console.log('what', pets);
-
-  const updateFilters = ({ filterType, filterValue, reset }) =>
+    const updateFilters = ({ filterType, filterValue, reset }) =>
     setFilters(
       reset
         ? {} // if reset is true empty the object
         : { ...filters, [filterType]: filterValue } // if it's not true maintain the rest of the properties and append/update the new ones
     );
 
-  const checkFilters = (filterKeys, pet) =>
+   const checkFilters = (filterKeys, pet) =>
     filterKeys.every(key => {
       // we loop our filterd keys, and we compared the value of those filters with the values of each pet
       const filterValue = filters[key];
@@ -69,12 +65,11 @@ const Cards = () => {
               const filterKeys = Object.keys(filters); //array of strings for each key in the object
               const hasFilters = !!filterKeys.length; //the !! are optional to further visualize that it's a falsy statement.
 
-              if (!pet.photo) return acc; //if it doesn't have photos, skip this pet and return acc value
+              if (!(pet.image && pet.image[0])) return acc; //if it doesn't have photos, skip this pet and return acc value
               if (hasFilters) {
                 const isValid = checkFilters(filterKeys, pet);
                 if (!isValid) return acc; //if the filters aren't "valid", we skip the pet again by returning the accumulator, which is no pet, because we have set it to an empty array
               }
-
               acc.push(
                 //so if it has fotos, and filters, push the pet "post" into the accumulator
                 
@@ -94,6 +89,7 @@ const Cards = () => {
                   </Card.Body>
                 </Card>
               );
+
               return acc;
             }, [])}{' '}
           {/* this empty braket (empty array) represents the innitial accumulator value*/}
