@@ -159,6 +159,7 @@
 .card:hover {
   transform: scale(1.05);
   cursor: pointer;
+  box-shadow: 0 30px 70px -12px #79cbb9;
 }
 
 .card-header {
