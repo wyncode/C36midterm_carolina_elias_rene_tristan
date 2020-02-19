@@ -7,6 +7,7 @@ import {
   useParams
 } from 'react-router-dom';
 import Axios from 'axios';
+import Card from 'react-bootstrap/Card'
 
 const PetDetail = () => {
   const [petData, setPetData] = useState({})
@@ -31,7 +32,18 @@ const PetDetail = () => {
 
   },[]) 
 
-return ( <p>{petData && petData.name}</p> 
+return ( 
+<div>
+  <p>{petData.name && petData.name}</p> 
+  {
+    petData.image && petData.image.map(image => {
+      return(
+        <img src={image.full} alt={image.full}/> 
+      )})
+  }
+  
+  
+</div>
      )
 };
 
