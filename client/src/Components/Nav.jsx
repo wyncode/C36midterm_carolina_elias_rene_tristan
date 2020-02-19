@@ -37,7 +37,7 @@ const MyNav = () => {
             </Link>
           </Nav>
         <Nav.Item as="li">
-          <Nav eventKey="link-1">
+          <Nav eventkey="link-1">
             <Link className="nav-link" to="/about">
               About Us
             </Link>

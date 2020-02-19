@@ -3,6 +3,8 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Pet from './Pet';
+import uuid from 'react-uuid';
+
 const filterOptions = [
   { label: 'All', reset: true },
   { value: 'Young', type: 'age' },
@@ -17,14 +19,15 @@ const filterOptions = [
 ];
 const Cards = ({ pets }) => {
   const [filters, setFilters] = useState({});
-    const updateFilters = ({ filterType, filterValue, reset }) =>
+  const updateFilters = ({ filterType, filterValue, reset }) =>
     setFilters(
       reset
         ? {} // if reset is true empty the object
         : { ...filters, [filterType]: filterValue } // if it's not true maintain the rest of the properties and append/update the new ones
     );
-   const checkFilters = (filterKeys, pet) =>
+  const checkFilters = (filterKeys, pet) =>
     filterKeys.every(key => {
+      key = pet.id;
       // we loop our filterd keys, and we compared the value of those filters with the values of each pet
       const filterValue = filters[key];
       return pet[key] === filterValue;
@@ -35,6 +38,7 @@ const Cards = ({ pets }) => {
       <div>
         {filterOptions.map(({ value, label, type, reset }) => (
           <button
+            key={uuid()}
             onClick={() =>
               updateFilters({ filterType: type, filterValue: value, reset })
             }
@@ -54,7 +58,7 @@ const Cards = ({ pets }) => {
                 const isValid = checkFilters(filterKeys, pet);
                 if (!isValid) return acc; //if the filters aren't "valid", we skip the pet again by returning the accumulator, which is no pet, because we have set it to an empty array
               }
-              acc.push(<Pet key={pet.id} pet={pet} />)
+              acc.push(<Pet key={pet.id} pet={pet} />);
               return acc;
             }, [])}{' '}
           {/* this empty braket (empty array) represents the innitial accumulator value*/}

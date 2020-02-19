@@ -7,6 +7,7 @@ import {
   useParams
 } from 'react-router-dom';
 import Axios from 'axios';
+import uuid from 'react-uuid';
 import Card from 'react-bootstrap/Card'
 
 const PetDetail = () => {
@@ -35,10 +36,11 @@ const PetDetail = () => {
 return ( 
 <div>
   <p>{petData.name && petData.name}</p> 
-  {
-    petData.image && petData.image.map(image => {
+  { 
+   petData.image && petData.image.map(image => {
+   
       return(
-        <img src={image.full} alt={image.full}/> 
+        <img key={uuid()} src={image.full} alt={image.full}/> 
       )})
   }
   
