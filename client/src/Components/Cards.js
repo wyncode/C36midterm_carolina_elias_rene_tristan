@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+import Card from 'react-bootstrap/Card';
+
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,7 +21,10 @@ const filterOptions = [
   { value: 'Xlarges', label: 'Extra Large', type: 'size' }
 ];
 
-const Cards = ({ pets }) => {
+const Cards = () => {
+  const history = useHistory();
+  const [pets, setPets] = useState([]);
+
   const [filters, setFilters] = useState({});
 
 
@@ -34,6 +41,8 @@ const Cards = ({ pets }) => {
       const filterValue = filters[key];
       return pet[key] === filterValue;
     });
+
+    const handleAnimalClick = id => history.push(`/petdetail/${id}`)
 
   return (
     // the return is what gets rendured
@@ -61,8 +70,26 @@ const Cards = ({ pets }) => {
                 const isValid = checkFilters(filterKeys, pet);
                 if (!isValid) return acc; //if the filters aren't "valid", we skip the pet again by returning the accumulator, which is no pet, because we have set it to an empty array
               }
+              acc.push(
+                //so if it has fotos, and filters, push the pet "post" into the accumulator
+                
+                <Card key={pet.id} onClick={() => handleAnimalClick(pet.id)}>
+                  <Card.Header>{pet.name}</Card.Header>
+                  <Card.Img src={pet.photo.full} />
+                  <Card.ImgOverlay></Card.ImgOverlay>
 
-              acc.push(<Pet key={pet.id} pet={pet} />)
+                  <Card.Body>
+                    <Card.Title></Card.Title>
+                    <Card.Subtitle>{pet.breed}</Card.Subtitle>
+                    <br></br>
+                    <Card.Footer>
+                      Age: {pet.age} <br /> Size: {pet.size} <br /> Sex:{' '}
+                      {pet.gender}{' '}
+                    </Card.Footer>
+                  </Card.Body>
+                </Card>
+              );
+
               return acc;
             }, [])}{' '}
           {/* this empty braket (empty array) represents the innitial accumulator value*/}
