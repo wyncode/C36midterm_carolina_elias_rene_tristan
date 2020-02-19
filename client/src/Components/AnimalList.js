@@ -6,14 +6,25 @@ import Cards from './Cards';
 
 const AnimalList = () => {
     const [pets, setPets] = useState([]);
+    const [loading, setLoading] = useState(true)
     const { type } = useParams();
 
-    useEffect(() => {
-        axios.get(`/api/pets/${type}`)
-        .then(res => setPets(res.data))
+    useEffect(async () => {
+        console.log(loading, "loading")
+        await axios.get(`/api/pets/${type}`)
+        .then(res =>{
+            setPets(res.data)
+            setLoading(false)
+        }) 
     }, [type]) // refetching everytime type changes in the url
 
-    return <Cards pets={pets} />
+    return(
+        <div>
+        {
+            loading ? <h1>Loading...</h1> : <Cards pets={pets}/>
+        }
+        </div>
+    ) 
 }
 
 export default AnimalList;
