@@ -10,7 +10,7 @@ const MyNav = () => {
 <Navbar expand="lg">
       <Nav href="home">
         <Link to="/">
-          <img src={logo} className="logo" alt="logo"></img>{' '}
+          <img src={logo} className="logo" alt="logo"></img>
         </Link>
       </Nav>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

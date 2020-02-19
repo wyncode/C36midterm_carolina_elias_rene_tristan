@@ -6,12 +6,12 @@ import Cards from './Cards';
 
 const AnimalList = () => {
     const [pets, setPets] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const { type } = useParams();
 
-    useEffect(async () => {
-        console.log(loading, "loading")
-        await axios.get(`/api/pets/${type}`)
+    useEffect(() => {
+        setLoading(true)
+        axios.get(`/api/pets/${type}`)
         .then(res =>{
             setPets(res.data)
             setLoading(false)
