@@ -7,56 +7,25 @@ import { Link } from 'react-router-dom';
 
 const MyNav = () => {
   return (
-    <Navbar expand="lg">-
-      <Nav href="home">
-        <Link to ="/"><img src={logo} className="logo" alt="logo"></img> </Link>
-      </Nav>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" >
-        <Nav className="mr-auto"></Nav>
-      <Nav>
-         <Link className="nav-link" to="/pets/dog">Dogs</Link> 
-      </Nav>   
-
-      <Nav>
-         <Link className="nav-link" to="/pets/cat">Cats</Link>
-      </Nav> 
-
-      <Nav>
-          <Link className="nav-link" to="/pets/rabbit">Rabbits</Link>
-      </Nav>
-
-      <Nav>
-            <Link className="nav-link" to="/pets/bird">Birds</Link>
-      </Nav>
-
-      <Nav.Item as="li">
-      <Nav eventKey="link-1">
-          <Link className="nav-link" to="/about">About Us</Link>
-      </Nav>
-      </Nav.Item>
+<Navbar expand="lg">
       <Nav.Link href="home">
         <Link to="/">
           <img src={logo} className="logo" alt="logo"></img>{' '}
         </Link>
       </Nav.Link>
-          
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto"></Nav>
-
         <Nav.Link>
           <Link className="nav-link" to="/pets/dog">
             Dogs
           </Link>
         </Nav.Link>
-
         <Nav.Link>
           <Link className="nav-link" to="/pets/cat">
             Cats
           </Link>
         </Nav.Link>
-
           <Nav.Link>
               <Link className="nav-link" to="/pets/rabbit">
                 Rabbits
@@ -67,7 +36,6 @@ const MyNav = () => {
                 Birds
               </Link>
           </Nav.Link>
-        </NavDropdown>
         <Nav.Item as="li">
           <Nav.Link eventKey="link-1">
             <Link className="nav-link" to="/about">
