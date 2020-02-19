@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
+import {
+  Card,
+  Container,
+  Col,
+  Row,
+  ToggleButtonGroup,
+  ToggleButton,
+  ButtonToolbar,
+  ButtonGroup
+} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import '../App.css';
 
 const filterOptions = [
@@ -48,15 +54,24 @@ const Cards = () => {
     // the return is what gets rendured
     <Container className="cards-container">
       <div>
-        {filterOptions.map(({ value, label, type, reset }) => (
-          <button
-            onClick={() =>
-              updateFilters({ filterType: type, filterValue: value, reset })
-            }
-          >
-            {label || value}
-          </button>
-        ))}{' '}
+        <Row className="button-bar">
+          {filterOptions.map(({ value, label, type, reset }) => (
+            <ButtonGroup toggle>
+              <ToggleButton
+                type="radio"
+                name="radio"
+                defaultChecked
+                value="1"
+                value
+                onClick={() =>
+                  updateFilters({ filterType: type, filterValue: value, reset })
+                }
+              >
+                {label || value}
+              </ToggleButton>
+            </ButtonGroup>
+          ))}{' '}
+        </Row>
         {/* This filter options.map just maps through our options/filters /*/}
         <Row>
           {pets &&

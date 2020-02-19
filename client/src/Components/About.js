@@ -2,17 +2,20 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col } from 'react-bootstrap';
 import ReactDOM from 'react-dom';
+import Carolina from '../Images/KleinCarolina-photo.jpg';
 
 const About = () => {
+  console.log(Carolina);
+
   let teamMembers = [
     {
-      // className: 'carolina-about',
       name: 'Carolina',
       city: 'Palma de Mallorca',
       about:
         'I adore all animals and truly enjoyed collaborating on the creation of the FurEver App',
       future:
-        'I look forward to becoming a Software Engineer based in Miami, where I can continue to work with like-minded people'
+        'I look forward to becoming a Software Engineer based in Miami, where I can continue to work with like-minded people',
+      image: Carolina
     },
     {
       name: 'Elias',
@@ -44,7 +47,7 @@ const About = () => {
               <div className="flip-card">
                 <div className="flip-card-inner">
                   <div className="flip-card-front">
-                    <p>image goes here</p>
+                    <img src={teamMember.image}></img>
                   </div>
                   <div className="flip-card-back">
                     <h1>{`${teamMember.name}`}</h1>
