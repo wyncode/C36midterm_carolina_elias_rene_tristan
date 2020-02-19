@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -21,6 +22,7 @@ const filterOptions = [
 ];
 
 const Cards = () => {
+  const history = useHistory();
   const [pets, setPets] = useState([]);
   const [filters, setFilters] = useState({});
 
@@ -43,6 +45,8 @@ const Cards = () => {
       const filterValue = filters[key];
       return pet[key] === filterValue;
     });
+
+    const handleAnimalClick = id => history.push(`/petdetail/${id}`)
 
   return (
     // the return is what gets rendured
@@ -73,7 +77,8 @@ const Cards = () => {
 
               acc.push(
                 //so if it has fotos, and filters, push the pet "post" into the accumulator
-                <Card key={pet.id}>
+                
+                <Card key={pet.id} onClick={() => handleAnimalClick(pet.id)}>
                   <Card.Header>{pet.name}</Card.Header>
                   <Card.Img src={pet.photo.full} />
                   <Card.ImgOverlay></Card.ImgOverlay>

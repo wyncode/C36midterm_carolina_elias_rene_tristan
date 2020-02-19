@@ -21,7 +21,7 @@ const PetDetail = () => {
         //   console.log(response)
 
         // })
-        // console.log(result)
+        console.log(result)
 
 
       const { id } = result.data
@@ -31,7 +31,7 @@ const PetDetail = () => {
 
   },[]) 
 
-return ( <p>{petData && petData.id}</p> 
+return ( <p>{petData && petData.name}</p> 
      )
 };
 
