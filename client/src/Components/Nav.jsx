@@ -18,27 +18,27 @@ const MyNav = () => {
         <Nav className="mr-auto"></Nav>
 
       <Nav.Link>
-         <Link className="nav-link" to="/dogs">Dogs</Link> 
+         <Link className="nav-link" to="/pets/dog">Dogs</Link> 
       </Nav.Link>   
 
       <Nav.Link>
-         <Link className="nav-link" to="/cats">Cats</Link>
+         <Link className="nav-link" to="/pets/cat">Cats</Link>
       </Nav.Link>
 
        <NavDropdown title="Small Animals"  id="basic-nav-dropdown">
          <Nav.Link>
            <NavDropdown.Item>
-             <Link className="nav-link" to="/rabbits">Rabbits</Link>
+             <Link className="nav-link" to="/pets/rabbit">Rabbits</Link>
            </NavDropdown.Item>
          </Nav.Link>
          <Nav.Link>
              <NavDropdown.Item>
-               <Link className="nav-link" to="/rodents">Rodents</Link>
+               <Link className="nav-link" to="/pets/rodent">Rodents</Link>
             </NavDropdown.Item>
            </Nav.Link>
            <Nav.Link>
            <NavDropdown.Item>
-             <Link className="nav-link" to="/ferrets">Ferrets</Link>
+             <Link className="nav-link" to="/pets/ferret">Ferrets</Link>
             </NavDropdown.Item>
            </Nav.Link>
         </NavDropdown>
@@ -46,17 +46,17 @@ const MyNav = () => {
         <NavDropdown title="Other Critters" id="basic-nav-dropdown">
         <Nav.Link>
            <NavDropdown.Item>
-             <Link className="nav-link" to="/birds">Birds</Link>
+             <Link className="nav-link" to="/pets/bird">Birds</Link>
             </NavDropdown.Item>
            </Nav.Link>
            <Nav.Link>
            <NavDropdown.Item>
-             <Link className="nav-link" to="/reptiles">Reptiles</Link>
+             <Link className="nav-link" to="/pets/reptile">Reptiles</Link>
             </NavDropdown.Item>
            </Nav.Link>
            <Nav.Link>
            <NavDropdown.Item>
-             <Link className="nav-link" to="/fish">fish</Link>
+             <Link className="nav-link" to="/pets/fish">fish</Link>
             </NavDropdown.Item>
            </Nav.Link>
         </NavDropdown>
