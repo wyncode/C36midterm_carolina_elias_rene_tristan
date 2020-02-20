@@ -1,63 +1,95 @@
-# Node / Create-React-App mashup
-Read the instructions thoroughly before starting your project.
+-  FurEver App - 
 
-## Setup
-* `git clone` this repo
-* `cd` into it.
-* `yarn install`
-* `cd client && yarn install`
+FurEver helps users sort through available pets by pet type, size, sex, and age group.  Pulling from the PetFinder API, you can browse all pet profiles with available pictures and relevant information, and filter down your search.
 
-## To run your Express.JS and React developer environment locally
-Make sure you are in your project's directory, and then:
-```
-yarn dev
-```
+Currently it is a prototype.
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits.
+Click on the FurEver logo to see all pets available or select particular pet category in order to filter by type.   There other filters are available such as age group (young, adult, senior), sex, and size.
 
-## To deploy
+Once you find your perfect match, click on the card to get more information on your selection.
 
-* `heroku create your-app-name`
-* `git push heroku master`
+Dependencies:
 
-## Project Requirements
+The project uses React and ReactDOM libraries as well as React Bootstrap for styling.
+Finally we added axios for APIs
 
-* [ ] Your project should pull data from an API. There are lots of options [here](https://github.com/toddmotto/public-apis) and [here](https://market.mashape.com/).
-  * Avoid any APIs that require OAuth (we'll talk about that later).
-  * Many APIs require an API key. Just sign up for an account and attach the key to your URL. Please make sure not to share your secret keys in a public GitHub repo.
-  * Some APIs don't allow _Cross-Origin Resource Sharing_ (CORS), meaning you can't make AJAX requests to them. You can get around this by proxying your requests with your Express server.
-* [ ] Your project should render a list of data from the API.
-  * [ ] Your project should allow the list to be filtered or searched.
-* [ ] Your project should show details about a single resource when clicked.
-* [ ] Your project should look (really) pretty!
-* [ ] You and your team should employ good Git and GitHub collaboration practices.
-* [ ] Your project must have a README.md file explaining what the project does and why it matters. [Here's an example](https://github.com/codeforamerica/howto/blob/master/Good-READMEs.md) of a great README.md template.
+Instructions to Install Dependencies:
 
-Rubric Criterion | Points
---- | ---
-Ability to search or filter, use of React Router | 10
-Code formatting and quality: indentation, variable and file naming conventions, etc. | 10
-No unused variables or imports, compiler errors | 10
-Use of class components or react hooks when state is needed and functional components when state is not | 10
-Proper use of environment variables for API keys or CORS proxy if needed | 10
-Overall look and feel of application, well organized CSS files | 10
-Well written documentation | 10
-Use of GitHub issues, branches and commit messages | 10
-Look and feel of demo slide deck | 10
-Ability to explain code decisions in demo | 10
-Ability to defend code decisions in response to panel questions | 10
+yarn create react-app  .  
+yarn start            
+yarn add react-bootstrap bootstrap 
+yarn add react-router-dom 
+yarn add axios 
+yarn add uuid from “react-uuid”;
 
-## Bonus
 
-* Fanciful animations and transitions
-* Incorporate multiple APIs into a single app
 
-## Demo Requirements
 
-Create a slide deck for the technical panel. (Here's an [example](https://docs.google.com/presentation/d/15rfR-S5qAlzx4rHwBp_kJOlu0nQ7hcZOruTwbH6zRvQ/edit?usp=sharing).)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-* It should focus on *how* you built the app.
-* Include code snippets with brief explanations. Or, specific references to the location of the code in your GitHub repo.
-* It should emphasize your technical setbacks and solutions.
-* Get straight to the point.
-* Be prepared to answer questions. 
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

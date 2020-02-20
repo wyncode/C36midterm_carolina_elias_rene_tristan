@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 const Pet = ({ pet }) => {
     const history = useHistory();
     const handleAnimalClick = id => history.push(`/petdetail/${id}`)
+    
         return (
 
 

@@ -5,11 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Pet from './Pet';
 const filterOptions = [
   { label: 'All', reset: true },
+  { value: 'Baby', type: 'age' },
   { value: 'Young', type: 'age' },
   { value: 'Adult', type: 'age' },
   { value: 'Senior', type: 'age' },
   { value: 'Male', type: 'gender' },
   { value: 'Female', type: 'gender' },
+  { value: 'Unknown', type: 'gender' },
   { value: 'Small', type: 'size' },
   { value: 'Medium', type: 'size' },
   { value: 'Large', type: 'size' },
