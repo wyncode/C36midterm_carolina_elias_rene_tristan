@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
+import { Row, Container, ButtonGroup, ToggleButton } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Pet from './Pet';
 import uuid from 'react-uuid';
 
 const filterOptions = [
   { label: 'All', reset: true },
+  { value: 'Baby', type: 'age' },
   { value: 'Young', type: 'age' },
   { value: 'Adult', type: 'age' },
   { value: 'Senior', type: 'age' },
   { value: 'Male', type: 'gender' },
   { value: 'Female', type: 'gender' },
+  { value: 'Unknown', type: 'gender' },
   { value: 'Small', type: 'size' },
   { value: 'Medium', type: 'size' },
   { value: 'Large', type: 'size' },
@@ -36,14 +37,20 @@ const Cards = ({ pets }) => {
     <Container className="cards-container">
       <div>
         {filterOptions.map(({ value, label, type, reset }) => (
-          <button
-            key={uuid()}
-            onClick={() =>
-              updateFilters({ filterType: type, filterValue: value, reset })
-            }
-          >
-            {label || value}
-          </button>
+          <ButtonGroup toggle className="mt-10">
+            <ToggleButton
+              type="radio"
+              name="radio"
+              defaultChecked
+              value="1"
+              key={uuid()}
+              onClick={() =>
+                updateFilters({ filterType: type, filterValue: value, reset })
+              }
+            >
+              {label || value}
+            </ToggleButton>
+          </ButtonGroup>
         ))}{' '}
         {/* This filter options.map just maps through our options/filters /*/}
         <Row>
