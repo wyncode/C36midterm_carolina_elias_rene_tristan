@@ -1,11 +1,5 @@
-import React, {
-  useState,
-  useEffect,
-  Fragment
-} from 'react';
-import {
-  useParams
-} from 'react-router-dom';
+import React, { useState, useEffect, Fragment } from 'react';
+import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 import Card from 'react-bootstrap/Card'
 import Carousel from 'react-bootstrap/Carousel'

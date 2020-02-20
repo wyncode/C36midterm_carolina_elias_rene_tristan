@@ -8,8 +8,6 @@ const Pet = ({ pet }) => {
     const handleAnimalClick = id => history.push(`/petdetail/${id}`)
     
         return (
-
-
         <Card key={pet.id} onClick={() => handleAnimalClick(pet.id)} >
             <Card.Header>{pet.name}</Card.Header>
             <Card.Img src={pet.image[0].full} />

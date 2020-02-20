@@ -22,6 +22,8 @@ yarn add react-router-dom
 yarn add axios 
 yarn add uuid from “react-uuid”;
 
+![Image of FurEver App]
+(https://media.giphy.com/media/f6Q4Mk9CQFuGcYFTQK/giphy.gif
 
 
 

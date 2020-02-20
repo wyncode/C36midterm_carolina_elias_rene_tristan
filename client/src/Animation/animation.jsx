@@ -1,28 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
 import Ball from './images/ball.svg';
 import Bone from './images/bone.svg';
 import Paw from './images/paw.svg';
 import '../Animation/style.css';
 
-class Item extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      style: {
-        transform: `translate(${this.props.from[0]}px, ${
-          this.props.from[1]
-        }px) rotate(${Math.random() * 360}deg)`
-      }
-    };
-    this.setStyle = this.setStyle.bind(this);
+class Item extends Component {
+  state = {
+    style: {
+      transform: `translate(${this.props.from[0]}px, ${
+        this.props.from[1]
+      }px) rotate(${Math.random() * 360}deg)`
+    }
   }
 
   componentDidMount() {
     setTimeout(this.setStyle, 1);
   }
 
-  setStyle() {
+  setStyle = () => {
     const movingStyle = `translate(${Math.random() *
       window.innerHeight *
       2}px, ${Math.random() * window.innerWidth * 2}px) rotate(${Math.random() *
@@ -65,27 +60,19 @@ class Item extends React.Component {
   }
 }
 
-class Sky extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      moves: []
-    };
-    this.movement = this.movement.bind(this);
-  }
+class Sky extends Component {
+  state = { moves: [] }
 
   componentDidMount() {
     const many = this.props.how;
     const temp_moves = [];
-    for (let i = 0; i < many; i++) {
-      temp_moves.push(this.movement());
-    }
-    this.setState({
-      moves: temp_moves
-    });
+
+    for (let i = 0; i < many; i++) temp_moves.push(this.movement());
+
+    this.setState({ moves: temp_moves });
   }
 
-  movement() {
+  movement = () => {
     const rotation = Math.floor((Math.round(Math.random()) * 2 - 1) * 600);
     const fromX = Math.floor(Math.random() * window.innerWidth);
     const fromY = Math.floor(Math.random() * window.innerHeight * 1.5);
@@ -147,29 +134,25 @@ class Sky extends React.Component {
 }
 
 class Animation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mode: 'pets',
-      background: '#2F3939',
-      how: 100
-    };
-    this.handleClick = this.handleClick.bind(this);
+  state = {
+    mode: 'pets',
+    background: '#2F3939',
+    how: 100
   }
-  handleClick(e) {
+
+  handleClick = e  => {
     this.setState({
       mode: e.target.value,
       how: e.target.attributes.how.value,
       background: e.target.attributes.background.value
     });
   }
+
   render() {
     const { mode, background, how } = this.state;
-    const modes = {
-      pets: {}
-    };
+    const modes = { pets: {} };
     return (
-      <container className="animation-container">
+      <>
         <div className="Animation">
           <Sky
             images={modes[mode]}
@@ -179,7 +162,7 @@ class Animation extends React.Component {
             background={background}
           />{' '}
         </div>
-      </container>
+      </>
     );
   }
 }
