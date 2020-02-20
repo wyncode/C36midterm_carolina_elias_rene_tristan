@@ -1,4 +1,6 @@
-const { proxyAnimal } = require('./utilities');
+const {
+  proxyAnimal
+} = require('./utilities');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -9,14 +11,7 @@ const app = express();
 const path = require('path');
 const axios = require('axios');
 let accessToken = {};
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  // Handle React routing, return all requests to React app
-  app.get('*', (request, response) => {
-    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
-}
+
 
 // GET THE BEARER TOKEN
 
@@ -125,8 +120,16 @@ app.get('/api/pets/:type', async (req, res) => {
   res.send(animals);
 });
 
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  // Handle React routing, return all requests to React app
+  app.get('*', (request, response) => {
+    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`API listening on port ${port}...`);
 });
-
