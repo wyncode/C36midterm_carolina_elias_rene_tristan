@@ -138,6 +138,7 @@
 /* CARDS STYLE */
 .cards-container {
   display: flex;
+  justify-content: center;
   background-color: white;
   padding: 10px;
   margin-top: 10px;
@@ -168,6 +169,7 @@
   color: #f26143;
   text-align: center;
   background-color: white;
+  height: 50px;
 }
 
 .card-header:first-child {
@@ -200,10 +202,20 @@
 }
 
 /* BUTTONBAR STYLING */
-.button-bar {
-  display: flex;
-  justify-content: center;
+
+.btn-primary {
+  font-family: 'Oswald', sans-serif;
+  margin: 2px;
+  background-color: #f48478;
+  border: none;
 }
+
+.btn-primary:hover {
+  font-family: 'Oswald', sans-serif;
+
+  background-color: #f26143;
+}
+
 /* ABOUT ME STYLING */
 
 .team-member-container {
@@ -301,15 +313,25 @@
   margin-top: 40px;
   color: #f26143;
 }
-
-.about-footer {
-  height: 200px;
-  background-color: #f9d01e;
-  position: fixed;
-  bottom: 0;
-}
 .loadingContainer {
   display: flex;
   justify-content: center;
   align-content: center;
+}
+.loading {
+  font-family: 'Patua One', cursive;
+  font-size: 4rem;
+  margin-top: 40px;
+  color: #f26143;
+}
+
+/* PET DETAILS */
+
+.petDetailsContainer {
+  display: flex;
+  display: center;
+}
+.petName {
+  font-family: 'Patua One', cursive;
+  color: #f26143;
 }
