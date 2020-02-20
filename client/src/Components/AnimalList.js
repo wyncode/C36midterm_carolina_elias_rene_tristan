@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import LoadingImage from '../Images/gone-fetching.png';
 import axios from 'axios';
 import Cards from './Cards';
 
-
 const AnimalList = () => {
-    const [pets, setPets] = useState([]);
-    const [loading, setLoading] = useState(false)
-    const { type } = useParams();
+  const [pets, setPets] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { type } = useParams();
 
-    useEffect(() => {
-        setLoading(true)
-        axios.get(`/api/pets/${type}`)
-        .then(res =>{
-            setPets(res.data)
-            setLoading(false)
-        }) 
-    }, [type]) // refetching everytime type changes in the url
+  useEffect(() => {
+    setLoading(true);
+    axios.get(`/api/pets/${type}`).then(res => {
+      setPets(res.data);
+      setLoading(false);
+    });
+  }, [type]); // refetching everytime type changes in the url
 
-    return(
-        <div>
-        {
-            loading ? <h1>Loading...</h1> : <Cards pets={pets}/>
-        }
+  return (
+    <div>
+      {loading ? (
+        <div className="loadingContainer">
+          <h1 className="loading">fetching...get it?</h1>
         </div>
-    ) 
-}
+      ) : (
+        <Cards pets={pets} />
+      )}
+    </div>
+  );
+};
 
 export default AnimalList;
