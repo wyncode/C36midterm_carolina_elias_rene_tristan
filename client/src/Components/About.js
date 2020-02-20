@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Col, Row } from 'react-bootstrap';
-import ReactDOM from 'react-dom';
+import { Container, Col } from 'react-bootstrap';
 import Carolina from '../Images/KleinCarolina-photo.jpg';
 import Rene from '../Images/BreslauerRene-photo.jpg';
 import Tristan from '../Images/FavardTristan-photo.jpg';
@@ -67,11 +66,11 @@ const About = () => {
                       <div className="flip-card-front">
                         <img
                           className="team-member-image"
-                          src={teamMember.image}
+                          src={teamMember.image} alt="Team"
                         ></img>
                       </div>
                       <div className="flip-card-back">
-                        <img className="pets-image" src={teamMember.pets}></img>
+                        <img className="pets-image" src={teamMember.pets} alt="about me text" ></img>
 
                         <h1 className="team-member-name">{`${teamMember.name}`}</h1>
                         <p className="team-member-bio">{`I'm from ${teamMember.city} .${teamMember.about} .${teamMember.future}!`}</p>

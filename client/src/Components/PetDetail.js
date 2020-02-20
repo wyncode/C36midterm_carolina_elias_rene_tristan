@@ -8,6 +8,8 @@ import { CardColumns } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import uuid from 'react-uuid';
+
 const PetDetail = () => {
   const [petData, setPetData] = useState({});
   let { petId } = useParams();

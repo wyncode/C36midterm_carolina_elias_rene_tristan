@@ -27,7 +27,6 @@ const Cards = ({ pets }) => {
     );
   const checkFilters = (filterKeys, pet) =>
     filterKeys.every(key => {
-      key = pet.id;
       // we loop our filterd keys, and we compared the value of those filters with the values of each pet
       const filterValue = filters[key];
       return pet[key] === filterValue;

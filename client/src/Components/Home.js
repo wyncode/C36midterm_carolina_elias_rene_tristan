@@ -3,7 +3,7 @@ import '../App.css';
 import Animation from '../Animation/animation';
 import Carousel from './Carousel';
 import HomeBanner from './HomeBanner';
-import { Container, Nav } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import '../App.css';
 
 const Home = () => {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import AdoptMe from './Components/AdoptMe';
 import './App.css';
 import Nav from './Components/Nav';
@@ -8,19 +8,16 @@ import Home from './Components/Home';
 import AnimalList from './Components/AnimalList';
 import PetDetail from './Components/PetDetail';
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
-  const [isLoading, setLoading] = useState([true]);
-
   useEffect(() => {
     getApiData();
   }, []);
 
   const getApiData = () => {
     axios.get(`/api/animals`).then(response => {
-      const data = response.data;
-      setLoading(false);
+  
     });
   };
   return (
