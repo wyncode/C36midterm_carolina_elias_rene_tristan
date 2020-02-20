@@ -1,14 +1,12 @@
 import React, {
   useState,
   useEffect,
-  Fragment
 } from 'react';
 import {
   useParams
 } from 'react-router-dom';
 import Axios from 'axios';
 import uuid from 'react-uuid';
-import Card from 'react-bootstrap/Card'
 
 const PetDetail = () => {
   const [petData, setPetData] = useState({})
@@ -26,12 +24,11 @@ const PetDetail = () => {
         console.log(result)
 
 
-      const { id } = result.data
       setPetData(result.data)
     }
     getData()
 
-  },[]) 
+  },[petId]) 
 
 return ( 
 <div>
