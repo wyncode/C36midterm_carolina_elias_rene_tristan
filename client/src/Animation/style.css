@@ -9,7 +9,7 @@ body {
 }
 
 #animation-style {
-  opacity: 60%;
+  opacity: 0.6;
 }
 .animation-container {
   height: 600px;

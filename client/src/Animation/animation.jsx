@@ -11,7 +11,7 @@ class Item extends Component {
         this.props.from[1]
       }px) rotate(${Math.random() * 360}deg)`
     }
-  }
+  };
 
   componentDidMount() {
     setTimeout(this.setStyle, 1);
@@ -45,7 +45,7 @@ class Item extends Component {
       size: imgSize
     });
     setTimeout(this.setStyle, time * 1000);
-  }
+  };
 
   render() {
     const { style, size } = this.state;
@@ -61,7 +61,7 @@ class Item extends Component {
 }
 
 class Sky extends Component {
-  state = { moves: [] }
+  state = { moves: [] };
 
   componentDidMount() {
     const many = this.props.how;
@@ -93,7 +93,7 @@ class Sky extends Component {
       toY
     };
     return temp;
-  }
+  };
 
   render() {
     const items = this.props.images;
@@ -138,15 +138,15 @@ class Animation extends React.Component {
     mode: 'pets',
     background: '#2F3939',
     how: 100
-  }
+  };
 
-  handleClick = e  => {
+  handleClick = e => {
     this.setState({
       mode: e.target.value,
       how: e.target.attributes.how.value,
       background: e.target.attributes.background.value
     });
-  }
+  };
 
   render() {
     const { mode, background, how } = this.state;

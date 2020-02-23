@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import LoadingImage from '../Images/gone-fetching.png';
 import axios from 'axios';
 import Cards from './Cards';
+import Loader from '../Images/bone-loading.png';
 
 const AnimalList = () => {
   const [pets, setPets] = useState([]);
@@ -21,7 +22,9 @@ const AnimalList = () => {
     <div>
       {loading ? (
         <div className="loadingContainer">
-          <h1 className="loading">fetching...get it?</h1>
+          <h1 className="loading">
+            fetching <img id="loader" src={Loader} alt="loading image" />
+          </h1>
         </div>
       ) : (
         <Cards pets={pets} />
