@@ -21,10 +21,6 @@
   text-decoration: none;
 }
 
-.nav-item > a {
-  color: #ffffff;
-}
-
 .nav-link a {
   color: white;
 }
@@ -212,7 +208,6 @@
 
 .btn-primary:hover {
   font-family: 'Oswald', sans-serif;
-
   background-color: #f26143;
 }
 
@@ -330,8 +325,48 @@
 .petDetailsContainer {
   display: flex;
   display: center;
+  background-color: #fdc793;
+  margin: 50px;
+  border-radius: 100px;
+  height: 500px;
 }
 .petName {
   font-family: 'Patua One', cursive;
+  color: white;
+}
+.InfoCard {
+  font-family: 'Oswald', sans-serif;
+  color: #aa4433;
+  position: relative;
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 1.1rem;
+}
+
+.InfoCard a {
   color: #f26143;
+}
+.petCarousel {
+  width: 500px;
+  height: 500px;
+}
+.carouselPic {
+  max-height: 300px;
+}
+#loader {
+  width: 100px;
+  animation: spin;
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
